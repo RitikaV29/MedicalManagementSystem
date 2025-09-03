@@ -58,38 +58,10 @@ function PatientBooked() {
   },[]);
 
   return (
-    // <div>
-    //   {appointments.length === 0 ? (
-    //     <div className="text-center mt-10 text-red-600 font-semibold">
-    //       No appointments found
-    //     </div>
-    //   ) : (
-    //     appointments.map(app => (
-    //       <div key={app._id} className="border p-2 mb-4 rounded shadow bg-white">
-    //         <p className="font-semibold">Doctor: {app.doctor?.name}</p>
-
-    //         <p>Specialization: {app.doctor?.specialization}</p>
-    //         <p>Patient Name: {app.patientName || "N/A"}</p>
-    //         <p>Date: {app.date} at {app.time}</p>
-    //         <p>
-    //           Status:{" "}
-    //           {app.status === "Confirmed" ? (
-    //             <span className="text-green-600">✅ Confirmed</span>
-    //           ) : app.status === "Pending" ? (
-    //             <span className="text-orange-600">⏳ Pending</span>
-    //           ) : (
-    //             <span className="text-red-600">❌ Cancelled</span>
-    //           )}
-    //         </p>
-    //       </div>
-    //     ))
-    //   )}
-    // </div>
+   
 
     <div className="p-6 flex flex-col items-center">
-      <h2 className="text-3xl font-bold text-center mb-6 text-gray-700 uppercase">
-        Medical Appointment Log
-      </h2>
+     
 
       {appointments.length === 0 ? (
         <div className="text-center mt-10 text-red-600 font-semibold">
@@ -99,7 +71,7 @@ function PatientBooked() {
         appointments.map((app) => (
           <div
             key={app._id}
-            className="border-2 border-gray-400 mb-6 rounded-md w-200 overflow-hidden  bg-white "
+            className="border-2 border-gray-400 mb-6 rounded-md  overflow-hidden  bg-white "
           >
             <table className="w-full border-collapse text-sm ">
               <tbody>

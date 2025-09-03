@@ -32,7 +32,7 @@ const labSchema = new mongoose.Schema({
 
 const labTestBooking=new mongoose.Schema({
   labId:{type:mongoose.Schema.Types.ObjectId,ref:'Lab'},
-  userId:{type:mongoose.Schema.Types.ObjectId,ref:'User'},
+  userId:{type:mongoose.Schema.Types.ObjectId,ref:'LabUser'},
   testName:{type:String,required:true},
   bookingDate:{type:Date,default:Date.now()},
   status: {

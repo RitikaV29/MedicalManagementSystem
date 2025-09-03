@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import img2 from "../../assets/img2.webp";
 import Appointment from "../../Components/Appointment";
+import DoctorAppointmentHistory from "./DoctorAppointmentHistory";
 
 function UserProfile() {
   const token = localStorage.getItem("token");
@@ -122,6 +123,15 @@ const handleSave = async () => {
             📅 Appointment
           </button>
 
+           <button
+            onClick={() => setActiveTab("doctorAppointment")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-md ${
+              activeTab === "doctorAppointment" ? "bg-blue-100" : "hover:bg-gray-100"
+            }`}
+          >
+            📅  Doctor Appointment
+          </button>
+
           <button
             onClick={() => setActiveTab("notifications")}
             className={`flex items-center gap-2 px-4 py-2 rounded-md ${
@@ -141,7 +151,7 @@ const handleSave = async () => {
       </div>
 
       {/* Right Content */}
-      <div className="w-full md:w-[50%] bg-gray-100 shadow-md rounded-xl p-6">
+      <div className="w-full md:w-[50%] bg-gray-100 shadow-md rounded-xl p-6 overflow-x-auto">
         {activeTab === "profile" && (
           <>
             {/* --- Profile Details --- */}
@@ -237,6 +247,12 @@ const handleSave = async () => {
          <Appointment/>
          </>
         )}
+{activeTab === "doctorAppointment" && (
+    <div className="overflow-x-auto">  {/* 👈 yaha wrapper */}
+      <DoctorAppointmentHistory/>
+    </div>
+  )}
+
 
         {activeTab === "notifications" && (
           <div>

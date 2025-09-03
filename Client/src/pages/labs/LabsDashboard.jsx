@@ -9,8 +9,7 @@ export default function LabsDashboard() {
   return (
     <div className="flex h-screen w-full bg-slate-100 overflow-hidden">
       {/* Sidebar */}
-      <Sidebar />
-
+    
       {/* Main Content */}
       <div className="flex-1 flex flex-col m-3">
         {/* Top Stats */}
@@ -51,3 +50,5 @@ export default function LabsDashboard() {
     </div>
   );
 }
+
+

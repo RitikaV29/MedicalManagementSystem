@@ -9,7 +9,7 @@ const app = express();
 connectDB();
 // Routes
 const registerRoute = require("./App/routes/registerRoute");
-const appoinmentRoute=require("./App/routes/appoinmentRoute");
+
 const dashboardRoute=require("./App/routes/dashboardRoute");
 const staffRoute=require("./App/routes/staffRoute")
 // user by registration
@@ -17,12 +17,13 @@ const regisByUserRoute=require("./App/routes/regisByUserRoute");
 const appoinmentByUserRoute=require("./App/routes/appoinmentByUserRoute");
 const authRoutes = require("./App/routes/authRoutes");
 const labRoutes = require("./App/routes/labRoutes");
-
+ const appointmentRoutes = require("./App/routes/doctorAppointmentRoutes");
+ const doctorRoutes = require("./App/routes/doctorRoutes");
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use("/registerUser", registerRoute);
-app.use("/appoinmentUser",appoinmentRoute);
+
 app.use("/dashboard",dashboardRoute);
 app.use("/staffRoute",staffRoute);
 //
@@ -30,6 +31,11 @@ app.use("/",regisByUserRoute)
 app.use("/appoinmentByUser",appoinmentByUserRoute);
 app.use("/api/auth",authRoutes);
 app.use("/api/labs",labRoutes);
+
+
+app.use("/api/doctors",doctorRoutes);
+
+app.use("/api/appointments",appointmentRoutes);
 // Root Route
 app.get("/", (req, res) => {
   res.send("Hello World!");

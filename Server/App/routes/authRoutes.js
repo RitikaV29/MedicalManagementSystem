@@ -7,5 +7,5 @@ router.post("/login",loginUser);
 router.put("/update/:id",updateUser);
 router.post("/labsRegister",labsRegister);
 router.post("/labsLogin",labsLogin);
-router.get("/user/:id",authMiddleware,getUserById);
+router.get("/user/:id",getUserById);
 module.exports = router;

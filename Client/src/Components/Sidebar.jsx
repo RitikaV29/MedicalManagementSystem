@@ -29,7 +29,7 @@ const token = localStorage.getItem("labToken");
 
   const handleLogout = () => {
     localStorage.removeItem("labToken"); // match login key
-    window.location.href = "/";
+    window.location.href = "/home";
   };
 
   return (

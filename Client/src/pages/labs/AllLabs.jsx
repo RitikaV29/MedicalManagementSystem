@@ -21,6 +21,19 @@ export default function AllLabs() {
   const id = decodedUser?._id?.toString();
 
   const handleBooking = (labId, userId, testName) => {
+
+
+     if (!decodedUser) {
+    Swal.fire({
+      title: "Login Required",
+      text: "Please login to book a test.",
+      icon: "warning",
+      confirmButtonText: "Login",
+    }).then(() => {
+      window.location.href = "/userLogin"; // redirect to login page
+    });
+    return;
+  }
     fetch(`${import.meta.env.VITE_API_URL}/api/labs/testBooking`, {
       method: "POST",
       headers: { "Content-Type": "application/json",
@@ -55,7 +68,7 @@ export default function AllLabs() {
     fetch(`${import.meta.env.VITE_API_URL}/api/labs/search?query=${encodeURIComponent(searchQuery)}`,{
       headers:{
         "Content-Type":"application/json",
-        Authorization:`Bearer ${token}`
+        // Authorization:`Bearer ${token}`
       }
     })
       .then(res => {
@@ -115,7 +128,7 @@ export default function AllLabs() {
     .filter(Boolean); // remove nulls
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <div className="my-8 w-[50%] rounded-full bg-white p-2 shadow-lg flex items-center gap-3">
         <Search className="w-6 h-6 text-gray-400 ml-2 cursor-pointer" onClick={() => fetchLabs(query)} />
         <input
@@ -156,11 +169,11 @@ export default function AllLabs() {
                   {lab.tests.map((t, idx) => (
                     <li key={idx} className="flex justify-between items-center bg-gray-700 p-2 rounded-md">
                       <span className="text-gray-100">{t.name} - ₹{t.price}</span>
-                      <button
+                      <button 
                         onClick={() => handleBooking(lab._id, id, t.name)}
                         className="px-3 py-1 bg-indigo-500 text-white rounded-md font-semibold hover:bg-indigo-600 transition"
                       >
-                        Book
+                        Book Now
                       </button>
                     </li>
                   ))}

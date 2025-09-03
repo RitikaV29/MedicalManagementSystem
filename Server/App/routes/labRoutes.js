@@ -7,13 +7,13 @@ router.get("/test", (req, res) => {
   res.send("Lab routes are working!");
 });
 
-router.get("/all",verifyToken,getAllLabs);
-router.post("/testBooking",verifyToken,labTestBooking);
+router.get("/all",getAllLabs);
+router.post("/testBooking",labTestBooking);
 router.patch("/updateStatus/:bookingId",updateStatus);
 router.get("/getBookedTest/:id",getBookedTest);
-router.get("/getPatients/:id",verifyToken,getPatients);
-router.get("/getLab/:id",verifyToken,getLabById);
-router.put("/updateLab/:id",verifyToken,updateLab);
-router.get("/search",verifyToken,searchLabs);
-router.delete("/deleteLab/:id",verifyToken,deleteLab);
+router.get("/getPatients/:id",getPatients);
+router.get("/getLab/:id",getLabById);
+router.put("/updateLab/:id",updateLab);
+router.get("/search",searchLabs);
+router.delete("/deleteLab/:id",deleteLab);
 module.exports = router;

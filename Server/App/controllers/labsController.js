@@ -96,12 +96,12 @@ const updateStatus = async (req, res) => {
       return res.status(404).json({message:"Patient not found"});
     }
     const user=patient.userId;
-    await transporter.sendMail({
-      from: 'ritika.vishwakarma29@gmail.com',
-      to: user.email,
-      subject: 'Patient Status Update',
-      text:`Hello ${user.name},\n\nYour test for ${patient.testName} is ${status}.\n\nThank you for using our service.`,
-    })
+    // await transporter.sendMail({
+    //   from: 'ritika.vishwakarma29@gmail.com',
+    //   to: user.email,
+    //   subject: 'Patient Status Update',
+    //   text:`Hello ${user.name},\n\nYour test for ${patient.testName} is ${status}.\n\nThank you for using our service.`,
+    // })
     return res.status(200).json({message:"Patient status updated successfully",updatedBooking:patient});
   }
   catch(err){

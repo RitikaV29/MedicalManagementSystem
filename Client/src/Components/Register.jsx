@@ -28,7 +28,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/registerUser/insertUser",
+        `${import.meta.env.VITE_BACKEND_URL}/registerUser/insertUser`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

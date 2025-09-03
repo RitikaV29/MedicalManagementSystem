@@ -37,7 +37,7 @@ function PatientBooked() {
    if (!token) return;
     const fetchAppointments = async () => {
       try{
-        const res = await axios.get(`http://localhost:5000/api/appointments/patient/status/${id}`,{
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/appointments/patient/status/${id}`,{
           // headers:{
           //   Authorization:`Bearer ${token}`
           // },

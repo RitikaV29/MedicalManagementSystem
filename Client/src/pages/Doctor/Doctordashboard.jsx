@@ -95,7 +95,7 @@ function Doctordashboard(){
         <div className=" w-full min-h-screen flex  flex-col justify-center items-center p-6">
          
       <div className="max-w-5xl w-full bg-white shadow-2xl rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
-        {/* Left Section - Doctor Image */}
+        {/* Left Section - Doctor Image */} 
         <div className="bg-gray-50 flex flex-col justify-center items-center p-8">
           <img
             src={doctorimg}

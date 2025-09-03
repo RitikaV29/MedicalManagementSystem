@@ -27,7 +27,7 @@ function DoctorLogin(){
         setError("");
 
         try{
-            const res = await axios.post("http://localhost:5000/api/doctors/login",formData);
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/doctors/login`,formData);
             localStorage.setItem("doctorToken",res.data.token);
            Swal.fire({
                       title: "Success!",

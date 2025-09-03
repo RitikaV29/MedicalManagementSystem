@@ -25,7 +25,7 @@ const DashboardLayout = () => {
      const token = localStorage.getItem("staffToken");  // <-- yeh add karo
 
     try {
-      const resStats = await axios.get("http://localhost:5000/dashboard/stats", {
+      const resStats = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/dashboard/stats`, {
   headers: {
     Authorization: `Bearer ${token}`
   }
@@ -33,7 +33,7 @@ const DashboardLayout = () => {
       setStats(resStats.data);
 
       const today = new Date().toISOString().split("T")[0];
-      const resUpcoming = await axios.get(`http://localhost:5000/dashboard/upcoming/${today}`, {
+      const resUpcoming = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/dashboard/upcoming/${today}`, {
   headers: {
     Authorization: `Bearer ${token}`
   }

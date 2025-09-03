@@ -10,7 +10,7 @@ function DoctorProfile() {
   useEffect(() => {
     const fetchDoctor = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/doctors/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/doctors/${id}`);
         const data = await res.json();
         console.log("Doctor data", data);
         setDoctor(data);

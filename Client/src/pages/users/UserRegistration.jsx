@@ -16,7 +16,7 @@ function UserRegistration() {
 
   const handleRegistration = () => {
     console.log("clicked");
-    fetch(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)

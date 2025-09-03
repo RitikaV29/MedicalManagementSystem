@@ -44,7 +44,7 @@ const AppointSchedulingUser = () => {
 
     const fetchBooked = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/appoinmentUser/appointments/booked-slots", {
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/appoinmentUser/appointments/booked-slots`, {
           params: { date: selectedDate },
         });
         if (res.data.status === 1) {
@@ -69,7 +69,7 @@ const AppointSchedulingUser = () => {
     if (!selectedUserObj) return alert("Selected user not found!");
 
     try {
-      const res = await axios.post("http://localhost:5000/appoinmentByUser/insertUser", {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/appoinmentByUser/insertUser`, {
         // userId: selectedUser,
         userName: selectedUser,
         userEmail: selectedEmail,

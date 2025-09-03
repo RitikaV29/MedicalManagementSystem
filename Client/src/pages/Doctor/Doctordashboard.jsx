@@ -23,7 +23,7 @@ function Doctordashboard(){
                 console.log("Using token:", token);
               
 
-                const res = await axios.get("http://localhost:5000/api/doctors/profile",{
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/doctors/profile`,{
                     headers:{
                         Authorization:`Bearer ${token}`}
 
@@ -52,7 +52,7 @@ function Doctordashboard(){
         e.preventDefault();
         try{
             console.log("Sending Data",formData);
-            const res = await axios.delete(`http://localhost:5000/api/doctors/delete/${doctor._id}`,{
+            const res = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/doctors/delete/${doctor._id}`,{
                 headers:{
                     Authorization:`Bearer ${token}`
                 },
@@ -73,7 +73,7 @@ function Doctordashboard(){
         e.preventDefault();
         try{
             console.log("Sending Data",formData);
-            const res = await axios.put("http://localhost:5000/api/doctors/update/profile",formData,{
+            const res = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/doctors/update/profile`,formData,{
                 headers:{
                     Authorization:`Bearer ${token}`
                 },

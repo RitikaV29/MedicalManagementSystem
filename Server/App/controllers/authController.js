@@ -15,10 +15,10 @@ const { Lab } = require("../models/Lab.js");
     return res.status(400).json({ message: "Please fill all the fields" });
   }
 
-   const passwordRegex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if(!passwordRegex.test(password)){
-      return res.status(400).json({message:"Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character."});
-    }
+  //  const passwordRegex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  //   if(!passwordRegex.test(password)){
+  //     return res.status(400).json({message:"Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character."});
+  //   }
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);

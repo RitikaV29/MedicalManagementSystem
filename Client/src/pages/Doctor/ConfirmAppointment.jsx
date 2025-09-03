@@ -28,7 +28,7 @@ let decodedDoctor = null;
   const id = decodedDoctor.id;
   console.log("id:",id);
   
-                const res = await axios.get(`http://localhost:5000/api/appointments/doctor/getappointment/${id}`,{
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/appointments/doctor/getappointment/${id}`,{
                     // headers:{
                     //     Authorization:`Bearer ${token}`
                     // }
@@ -47,7 +47,7 @@ let decodedDoctor = null;
     const updateStatus = async(id,status)=>{
         try{
             const token = localStorage.getItem("doctorToken");
-            const res = await axios.put(`http://localhost:5000/api/appointments/${id}/status`,{status}
+            const res = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/appointments/${id}/status`,{status}
                 ,{headers:{Authorization : `Bearer ${token}`}}
             );
 

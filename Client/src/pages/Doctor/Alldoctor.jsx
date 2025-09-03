@@ -10,6 +10,8 @@ function Alldoctor() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  console.log(import.meta.env.VITE_BACKEND_URL)
+
   const fetchDoctors = async (specialization, location) => {
     try {
       setLoading(true);
@@ -18,7 +20,7 @@ function Alldoctor() {
       if (location) params.append("location", location);
 
       const res = await axios.get(
-        `http://localhost:5000/api/doctors/search?${params.toString()}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/doctors/search?${params.toString()}`
       );
       setDoctors(res.data);
     } catch (error) {

@@ -19,7 +19,7 @@ const AppointScheduling = () => {
     const fetchUsers = async () => {
       try {
         setLoadingUsers(true);
-        const res = await axios.get("http://localhost:5000/registerUser/showUser");
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/registerUser/showUser`);
         if (res.data.status === 1) {
           setUsers(res.data.userRes);
         } else {
@@ -43,7 +43,7 @@ const AppointScheduling = () => {
 
     const fetchBooked = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/appoinmentUser/appointments/booked-slots", {
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/appoinmentUser/appointments/booked-slots`, {
           params: { date: selectedDate },
         });
         if (res.data.status === 1) {
@@ -67,7 +67,7 @@ const AppointScheduling = () => {
     if (!selectedUserObj) return alert("Selected user not found!");
 
     try {
-      const res = await axios.post("http://localhost:5000/appoinmentUser/appointments/book", {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/appoinmentUser/appointments/book`, {
         userId: selectedUser,
         userName: selectedUserObj.name,
         date: selectedDate,

@@ -22,9 +22,9 @@ const ManageAppointment = () => {
       try {
         const [res1, res2] = await Promise.all([
           axios.get(
-            "http://localhost:5000/appoinmentUser/appointments/bookedShow"
+            `${import.meta.env.VITE_BACKEND_URL}/appoinmentUser/appointments/bookedShow`
           ),
-          axios.get("http://localhost:5000/appoinmentByUser/showUser"),
+          axios.get(`${import.meta.env.VITE_BACKEND_URL}/appoinmentByUser/showUser`),
         ]);
         // console.log(res1.data.userRes);
 
@@ -120,8 +120,8 @@ const ManageAppointment = () => {
       // ✅ Agar source Staff hai toh staff wali API call karo
       const endPoint =
         source === "User"
-          ? `http://localhost:5000/appoinmentByUser/updateUser/${id}` // User API
-          : `http://localhost:5000/appoinmentUser/appointments/updateUser/${id}`; // Staff API
+          ? `${import.meta.env.VITE_BACKEND_URL}/appoinmentByUser/updateUser/${id}` // User API
+          : `${import.meta.env.VITE_BACKEND_URL}/appoinmentUser/appointments/updateUser/${id}`; // Staff API
 
 
       const response = await axios.put(endPoint, {
@@ -164,8 +164,8 @@ const ManageAppointment = () => {
     try {
       const endPoint =
         source === "User"
-          ? `http://localhost:5000/appoinmentByUser/deleteUser/${id}` // user ne appointment li khud se or staff kuch bhi kar sakta hai 
-          : `http://localhost:5000/appoinmentUser/appointments/delete/${id}`; // stafff ne hi user kir egistration or khud kuch bhi kar sakta hai
+          ? `${import.meta.env.VITE_BACKEND_URL}/appoinmentByUser/deleteUser/${id}` // user ne appointment li khud se or staff kuch bhi kar sakta hai 
+          : `${import.meta.env.VITE_BACKEND_URL}/appoinmentUser/appointments/delete/${id}`; // stafff ne hi user kir egistration or khud kuch bhi kar sakta hai
 
       const response = await axios.delete(endPoint);
 

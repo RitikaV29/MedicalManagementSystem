@@ -21,7 +21,7 @@ function PatientProfile(){
 
       const fetchUser = async () => {
         try {
-          const res = await fetch(`http://localhost:5000/api/users/${patientId}`); // ✅ corrected
+          const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${patientId}`); // ✅ corrected
           const data = await res.json();
           console.log("User data",data);
           setPatient(data);

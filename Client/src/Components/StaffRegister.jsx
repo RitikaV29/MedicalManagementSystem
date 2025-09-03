@@ -24,7 +24,7 @@ const StaffRegister = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/staffRoute/registerStaff", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/staffRoute/registerStaff`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

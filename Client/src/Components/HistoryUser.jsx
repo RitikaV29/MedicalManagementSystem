@@ -74,7 +74,7 @@ const HistoryUser = () => {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/appoinmentByUser/showUser");
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/appoinmentByUser/showUser`);
         setAppointments(res.data.user);
       } catch (err) {
         alert("Failed to fetch appointments.");
